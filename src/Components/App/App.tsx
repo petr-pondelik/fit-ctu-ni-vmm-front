@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from "../Header/Header";
+import ApiClient from "../../Client/ApiClient";
 
 export interface AppStateInterface {}
 export interface AppPropsInterface {}
@@ -11,6 +12,7 @@ type AppValuesKey = keyof AppValuesInterface;
 
 class App extends React.Component<AppPropsInterface, AppStateInterface> {
 
+    apiClient: ApiClient;
     values: AppValuesInterface;
 
     /**
@@ -18,6 +20,7 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
      */
     constructor(state: AppStateInterface) {
         super(state);
+        this.apiClient = new ApiClient();
         this.values = {
             query: undefined
         }
@@ -37,6 +40,9 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
         }
         console.log(this.values);
         // TODO: Send request with this.values object to API
+        this.apiClient.photosSearch(this.values).then((response) => {
+            console.log(response);
+        });
     }
 
     render() {
