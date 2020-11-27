@@ -1,4 +1,5 @@
 import {AppValuesInterface} from "../Components/App/App";
+import PhotosSearchResponseInterface from "./Interface/Response/PhotosSearchResponseInterface";
 
 export default class ApiClient {
 
@@ -10,6 +11,10 @@ export default class ApiClient {
     initPostRequest = (body: AppValuesInterface): RequestInit => {
         return {
             method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(body)
         };
     }
@@ -17,7 +22,7 @@ export default class ApiClient {
     /**
      * @param body
      */
-    photosSearch = (body: AppValuesInterface): Promise<any> => {
+    photosSearch = (body: AppValuesInterface): Promise<PhotosSearchResponseInterface> => {
         return new Promise<any>(((resolve, reject) => {
             fetch(this.apiUrl + '/photos/search', this.initPostRequest(body))
                 .then((response) => {

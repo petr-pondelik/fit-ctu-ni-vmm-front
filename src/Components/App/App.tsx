@@ -1,11 +1,21 @@
 import React from 'react';
 import Header from "../Header/Header";
 import ApiClient from "../../Client/ApiClient";
+import PhotosSetInterface from "../../Interface/PhotosSetInterface";
+import PhotosGrid from "../Photos/PhotosGrid";
+import PositionInterface from "../../Client/Interface/Data/PositionInterface";
 
-export interface AppStateInterface {}
-export interface AppPropsInterface {}
+export interface AppPropsInterface {
+
+}
+
+export interface AppStateInterface {
+    photos: PhotosSetInterface
+}
+
 export interface AppValuesInterface {
-    query?: string
+    query?: string,
+    position?: PositionInterface
 }
 
 type AppValuesKey = keyof AppValuesInterface;
@@ -22,7 +32,17 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
         super(state);
         this.apiClient = new ApiClient();
         this.values = {
-            query: undefined
+            query: undefined,
+            // position: {
+            //     latitude: 42.367975,
+            //     longitude: -71.07251667
+            // }
+        }
+        this.state = {
+            photos: {
+                original: [],
+                reRanked: []
+            }
         }
     }
 
@@ -39,21 +59,25 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
             }
         }
         console.log(this.values);
-        // TODO: Send request with this.values object to API
         this.apiClient.photosSearch(this.values).then((response) => {
             console.log(response);
+            this.setState({
+                photos: response.res
+            })
         });
     }
 
     render() {
         console.log(this.state);
         return (
-            <div className="App row cyan lighten-5">
+            <div className="App row">
                 <Header
                     updateParent={this.updateParent}
                 />
                 <main className={"col s12"}>
-                    <p>TEST CONTENT</p>
+                    <PhotosGrid
+                        photos={this.state.photos}
+                    />
                 </main>
             </div>
         );
