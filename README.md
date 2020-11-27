@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# NI-VMM Semestral Project front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Useful links
+
+https://www.npmjs.com/package/google-maps-react  
+https://www.freecodecamp.org/news/debounce-and-throttle-in-react-with-hooks/
 
 ## Available Scripts
 

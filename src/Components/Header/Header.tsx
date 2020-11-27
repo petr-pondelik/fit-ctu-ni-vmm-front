@@ -1,7 +1,20 @@
 import React from "react";
 import QueryInput from "../QueryInput/QueryInput";
 
-export default class Header extends React.Component<any, any> {
+export interface HeaderStateInterface {}
+
+export interface HeaderPropsInterface {
+    updateParent: (newValues: object) => void
+}
+
+export default class Header extends React.Component<HeaderPropsInterface, HeaderStateInterface> {
+
+    /**
+     * @param newValues
+     */
+    updateParent = (newValues: object): void => {
+        this.props.updateParent(newValues);
+    }
 
     render() {
         return (
@@ -13,7 +26,9 @@ export default class Header extends React.Component<any, any> {
                         </div>
                     </div>
                 </nav>
-                <QueryInput/>
+                <QueryInput
+                    updateParent={this.updateParent}
+                />
             </header>
         );
     }
