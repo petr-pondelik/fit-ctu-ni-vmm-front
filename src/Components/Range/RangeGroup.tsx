@@ -1,5 +1,5 @@
 import React from "react";
-import MaterializeRange from "./MaterializeRange";
+import Range from "./Range";
 import DimensionsInterface from "../../Client/Interface/Data/DimensionsInterface";
 
 export interface RangeGroupPropsInterface {
@@ -45,7 +45,7 @@ export default class RangeGroup extends React.Component<RangeGroupPropsInterface
     render() {
         return (
             <div>
-                <MaterializeRange
+                <Range
                     min={0}
                     max={6000}
                     step={1}
@@ -53,7 +53,7 @@ export default class RangeGroup extends React.Component<RangeGroupPropsInterface
                     label={"Width"}
                     updateParent={this.update}
                 />
-                <MaterializeRange
+                <Range
                     min={0}
                     max={6000}
                     step={1}
