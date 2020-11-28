@@ -8,6 +8,7 @@ import LeafletMap from "../LeafletMap/LeafletMap";
 import MaterializeDatepicker from "../Datepicker/MaterializeDatepicker";
 import MaterializeTextInput from "../TextInput/MaterializeTextInput";
 import RangeGroup from "../Range/RangeGroup";
+import DimensionsInterface from "../../Client/Interface/Data/DimensionsInterface";
 
 export interface AppPropsInterface {
 
@@ -20,7 +21,8 @@ export interface AppStateInterface {
 export interface AppValuesInterface {
     query?: string
     position?: PositionInterface
-    author?: string
+    author?: string,
+    dimensions?: DimensionsInterface
 }
 
 type AppValuesKey = keyof AppValuesInterface;
@@ -39,7 +41,8 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
         this.values = {
             query: undefined,
             position: undefined,
-            author: undefined
+            author: undefined,
+            dimensions: undefined
         }
         this.state = {
             photos: {
@@ -105,7 +108,9 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
                         </div>
                         <div className={"row"}>
                             <div className={"col s12"}>
-                                <RangeGroup/>
+                                <RangeGroup
+                                    updateParent={this.update}
+                                />
                             </div>
                         </div>
                     </div>

@@ -2,23 +2,34 @@ import React, {ChangeEvent, useCallback} from "react";
 import debounce from "lodash.debounce";
 
 export interface RangePropsInterface {
-    min: number,
-    max: number,
-    step: number,
-    label: string
+    min: number
+    max: number
+    step: number
+    name: string
+    label?: string
+    updateParent: (newValues: object) => void
 }
 
 export default function MaterializeRange(props: RangePropsInterface) {
 
     /**
-     * @param author
+     * @param size
      */
-    const updateParent = (author: string) => {
-        console.log('updateParent: ' + author);
+    const updateParent = (size: number) => {
+        console.log('updateParent: ' + size);
+        if (props.name === 'width') {
+            props.updateParent({
+                'width': size
+            });
+        } else {
+            props.updateParent({
+                'height': size
+            });
+        }
     }
 
     const updateParentDebounced = useCallback(
-        debounce((author: string) => updateParent(author), 1500),
+        debounce((size: number) => updateParent(size), 1500),
         []
     );
 
@@ -27,7 +38,7 @@ export default function MaterializeRange(props: RangePropsInterface) {
      */
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         console.log(event.currentTarget.value);
-        updateParentDebounced(event.currentTarget.value);
+        updateParentDebounced(parseInt(event.currentTarget.value));
     }
 
     return (
