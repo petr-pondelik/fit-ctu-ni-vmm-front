@@ -6,7 +6,7 @@ import PhotosGrid from "../Photos/PhotosGrid";
 import PositionInterface from "../../Client/Interface/Data/PositionInterface";
 import LeafletMap from "../LeafletMap/LeafletMap";
 import MaterializeDatepicker from "../Datepicker/MaterializeDatepicker";
-import MaterializeTextInput from "../TextInput/MaterializeTextInput";
+import AuthorInput from "../TextInput/AuthorInput";
 import RangeGroup from "../Range/RangeGroup";
 import DimensionsInterface from "../../Client/Interface/Data/DimensionsInterface";
 
@@ -99,7 +99,7 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
                                     id={"created-date-picker"}
                                     label={"Created at"}
                                 />
-                                <MaterializeTextInput
+                                <AuthorInput
                                     id={"author-name"}
                                     label={"Author name"}
                                     updateParent={this.update}

@@ -1,6 +1,5 @@
 import React from "react";
 import QueryInput from "../QueryInput/QueryInput";
-import {Navbar} from "react-materialize";
 
 export interface HeaderStateInterface {}
 

@@ -44,7 +44,7 @@ export default function MaterializeRange(props: RangePropsInterface) {
     return (
         <p className="range-field">
             <label>{props.label}</label>
-            <input type="range" min={props.min} max={props.max} step={props.step} onChange={handleChange}/>
+            <input type="range" min={props.min} max={props.max} step={props.step} onChange={handleChange} defaultValue={0}/>
         </p>
     )
 

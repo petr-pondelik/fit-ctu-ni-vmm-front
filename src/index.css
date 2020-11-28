@@ -15,3 +15,15 @@ code {
 #root {
   min-height: 100vh;
 }
+
+.d-flex {
+  display: flex;
+}
+
+.flex-center-all {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
