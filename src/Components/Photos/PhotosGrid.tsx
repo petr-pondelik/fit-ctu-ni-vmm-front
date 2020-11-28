@@ -17,12 +17,12 @@ export default class PhotosGrid extends React.Component<PhotosListPropsInterface
         console.log(this.props.photos);
         return (
             <div className={"row"}>
-                <div className={"col s12 m6"}>
+                <div className={"col s6"}>
                     <PhotosList
                         photos={this.props.photos.original}
                     />
                 </div>
-                <div className={"col s12 m6"}>
+                <div className={"col s6"}>
                     <PhotosList
                         photos={this.props.photos.reRanked}
                     />
