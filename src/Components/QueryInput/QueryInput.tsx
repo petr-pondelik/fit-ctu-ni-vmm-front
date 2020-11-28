@@ -1,6 +1,5 @@
 import React, {ChangeEvent, useCallback} from "react";
 import debounce from "lodash.debounce";
-import {Navbar} from "react-materialize";
 
 export interface QueryInputPropsInterface {
     updateParent: (newValues: object) => void
@@ -8,22 +7,22 @@ export interface QueryInputPropsInterface {
 
 export default function QueryInput(props: QueryInputPropsInterface) {
 
-    const sendRequest = (query: string) => {
-        console.log('sendRequest: ' + query);
+    const updateParent = (query: string) => {
+        console.log('updateParent: ' + query);
         props.updateParent({
             "query": query
         });
     }
 
-    const sendRequestDebounced = useCallback(
-        debounce((query: string) => sendRequest(query), 1000),
+    const updateParentDebounced = useCallback(
+        debounce((query: string) => updateParent(query), 1000),
         []
     );
 
     const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
         let query: string = event.currentTarget.value;
         console.log('handleQueryChange: ' + query);
-        sendRequestDebounced(query);
+        updateParentDebounced(query);
     }
 
     return (

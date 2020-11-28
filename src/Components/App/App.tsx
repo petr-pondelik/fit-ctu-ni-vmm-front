@@ -6,6 +6,7 @@ import PhotosGrid from "../Photos/PhotosGrid";
 import PositionInterface from "../../Client/Interface/Data/PositionInterface";
 import LeafletMap from "../LeafletMap/LeafletMap";
 import MaterializeDatepicker from "../Datepicker/MaterializeDatepicker";
+import MaterializeTextInput from "../TextInput/MaterializeTextInput";
 
 export interface AppPropsInterface {
 
@@ -78,6 +79,9 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
                 />
                 <LeafletMap/>
                 <MaterializeDatepicker/>
+                <MaterializeTextInput
+                    label={"Author name"}
+                />
                 <main className={"col s12"}>
                     <PhotosGrid
                         photos={this.state.photos}
