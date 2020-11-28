@@ -17,7 +17,7 @@ export default class PhotoCard extends React.Component<PhotoCardPropsInterface, 
         return (
             <div className="card">
                 <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src={this.props.photo.links.download}/>
+                    <img className="activator" src={this.props.photo.urls.regular}/>
                 </div>
                 <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">{this.props.photo.alt_description}<i

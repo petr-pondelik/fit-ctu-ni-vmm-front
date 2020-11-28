@@ -1,6 +1,7 @@
 import UserInterface from "./UserInterface";
 import LocationInterface from "./LocationInterface";
 import LinksInterface from "./LinksInterface";
+import UrlsInterface from "./UrlsInterface";
 
 export default interface PhotoInterface {
     id: string,
@@ -9,6 +10,7 @@ export default interface PhotoInterface {
     height: number,
     user: UserInterface,
     location: LocationInterface,
+    alt_description: string,
     links: LinksInterface,
-    alt_description: string
+    urls: UrlsInterface,
 }
