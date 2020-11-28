@@ -7,6 +7,7 @@ import PositionInterface from "../../Client/Interface/Data/PositionInterface";
 import LeafletMap from "../LeafletMap/LeafletMap";
 import MaterializeDatepicker from "../Datepicker/MaterializeDatepicker";
 import MaterializeTextInput from "../TextInput/MaterializeTextInput";
+import RangeGroup from "../Range/RangeGroup";
 
 export interface AppPropsInterface {
 
@@ -74,19 +75,42 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
         console.log(this.state);
         return (
             <div className="App row">
-                <Header
-                    updateParent={this.updateParent}
-                />
-                <LeafletMap/>
-                <MaterializeDatepicker/>
-                <MaterializeTextInput
-                    label={"Author name"}
-                />
-                <main className={"col s12"}>
-                    <PhotosGrid
-                        photos={this.state.photos}
+                <div className={"row"}>
+                    <Header
+                        updateParent={this.updateParent}
                     />
-                </main>
+                </div>
+                <div className={"row"}>
+                    <div className={"col s12 m6"}>
+                        <div className={"row"}>
+                            <div className={"col s12"}>
+                                <LeafletMap/>
+                            </div>
+                        </div>
+                        <div className={"row"}>
+                            <div className={"col s12"}>
+                                <MaterializeDatepicker
+                                    id={"created-date-picker"}
+                                    label={"Created at"}
+                                />
+                                <MaterializeTextInput
+                                    id={"author-name"}
+                                    label={"Author name"}
+                                />
+                            </div>
+                        </div>
+                        <div className={"row"}>
+                            <div className={"col s12"}>
+                                <RangeGroup/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"col s12 m6"}>
+                        <PhotosGrid
+                            photos={this.state.photos}
+                        />
+                    </div>
+                </div>
             </div>
         );
     }

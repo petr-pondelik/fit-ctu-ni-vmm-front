@@ -1,12 +1,14 @@
 import React, {ChangeEvent, useCallback} from "react";
 import debounce from "lodash.debounce";
 
-export interface MaterializeTextInputPropsInterface {
-    id: string
-    label?: string
+export interface RangePropsInterface {
+    min: number,
+    max: number,
+    step: number,
+    label: string
 }
 
-export default function MaterializeTextInput(props: MaterializeTextInputPropsInterface) {
+export default function MaterializeRange(props: RangePropsInterface) {
 
     /**
      * @param author
@@ -29,12 +31,10 @@ export default function MaterializeTextInput(props: MaterializeTextInputPropsInt
     }
 
     return (
-        <React.Fragment>
-            <div className={"input-field"}>
-                <input id={props.id} type="text" onChange={handleChange}/>
-                <label htmlFor={props.id}>{props.label}</label>
-            </div>
-        </React.Fragment>
+        <p className="range-field">
+            <label>{props.label}</label>
+            <input type="range" min={props.min} max={props.max} step={props.step} onChange={handleChange}/>
+        </p>
     )
 
 }

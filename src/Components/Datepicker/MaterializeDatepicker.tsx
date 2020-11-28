@@ -1,9 +1,9 @@
-import React, {ChangeEvent} from "react";
-import DatePicker from "react-materialize/lib/DatePicker";
+import React from "react";
 
 
 export interface DatepickerPropsInterface {
-
+    id: string,
+    label?: string
 }
 
 export interface DatepickerStateInterface {
@@ -23,27 +23,31 @@ export default class MaterializeDatepicker extends React.Component<DatepickerPro
      * @param date
      */
     handleSelect = (date: Date) => {
-        // TODO: Store selected date
+        // TODO: Update selected date
         console.log(date);
     }
 
-    /**
-     * @param event
-     */
-    handleClose = (event: any) => {
+    handleClose = () => {
         // TODO: If the selected date differs from current, set it into current date and update parent
-        console.log(event);
+        console.log('Close');
     }
 
     render() {
         return (
-            <DatePicker
-                options={{
-                    onClose: this.handleClose,
-                    onSelect: this.handleSelect
-                }}
-            />
+            <div className={"input-field"}>
+                <input type="text" className="datepicker" id={this.props.id}/>
+                <label htmlFor={this.props.id}>{this.props.label}</label>
+            </div>
         );
+    }
+
+    componentDidMount() {
+        // Init Materialize DatePicker
+        let e: NodeListOf<Element> = document.querySelectorAll('#' + this.props.id);
+        M.Datepicker.init(e, {
+            'onSelect': this.handleSelect,
+            'onClose': this.handleClose
+        });
     }
 
 }

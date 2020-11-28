@@ -27,7 +27,7 @@ export default function QueryInput(props: QueryInputPropsInterface) {
 
     return (
         <nav>
-            <div className={"nav-wrapper indigo darken-2"}>
+            <div className={"nav-wrapper indigo darken-1"}>
                 <form>
                     <div className="input-field">
                         <input id="search" type="search" onChange={handleQueryChange} required/>
