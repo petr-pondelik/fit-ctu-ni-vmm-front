@@ -15,7 +15,7 @@ export default function QueryInput(props: QueryInputPropsInterface) {
     }
 
     const updateParentDebounced = useCallback(
-        debounce((query: string) => updateParent(query), 1000),
+        debounce((query: string) => updateParent(query), 1500),
         []
     );
 

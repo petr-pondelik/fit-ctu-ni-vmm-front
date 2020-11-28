@@ -16,7 +16,7 @@ export default function MaterializeTextInput(props: MaterializeTextInputPropsInt
     }
 
     const updateParentDebounced = useCallback(
-        debounce((author: string) => updateParent(author), 1000),
+        debounce((author: string) => updateParent(author), 1500),
         []
     );
 

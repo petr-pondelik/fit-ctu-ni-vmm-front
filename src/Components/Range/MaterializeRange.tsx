@@ -18,7 +18,7 @@ export default function MaterializeRange(props: RangePropsInterface) {
     }
 
     const updateParentDebounced = useCallback(
-        debounce((author: string) => updateParent(author), 1000),
+        debounce((author: string) => updateParent(author), 1500),
         []
     );
 
