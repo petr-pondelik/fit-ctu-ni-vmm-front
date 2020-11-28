@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useCallback} from "react";
 import debounce from "lodash.debounce";
+import {Navbar} from "react-materialize";
 
 export interface QueryInputPropsInterface {
     updateParent: (newValues: object) => void
@@ -25,20 +26,20 @@ export default function QueryInput(props: QueryInputPropsInterface) {
         sendRequestDebounced(query);
     }
 
-        return (
-            <nav>
-                <div className={"nav-wrapper indigo darken-2"}>
-                    <form>
-                        <div className="input-field">
-                            <input id="search" type="search" onChange={handleQueryChange} required/>
-                            <label className="label-icon" htmlFor="search">
-                                <i className="material-icons">search</i>
-                            </label>
-                            <i className="material-icons">close</i>
-                        </div>
-                    </form>
-                </div>
-            </nav>
-        );
+    return (
+        <nav>
+            <div className={"nav-wrapper indigo darken-2"}>
+                <form>
+                    <div className="input-field">
+                        <input id="search" type="search" onChange={handleQueryChange} required/>
+                        <label className="label-icon" htmlFor="search">
+                            <i className="material-icons">search</i>
+                        </label>
+                        <i className="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+    );
 
 }

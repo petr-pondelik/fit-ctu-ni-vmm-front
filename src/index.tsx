@@ -8,6 +8,12 @@ import './index.css';
 
 import App from "./Components/App/App";
 
+// Init Materialize MaterializeDatepicker components
+// document.addEventListener('DOMContentLoaded', function() {
+//     let e = document.querySelectorAll('.datepicker');
+//     let instances = M.MaterializeDatepicker.init(e, {});
+// });
+
 ReactDOM.render(
   <React.StrictMode>
       <App />

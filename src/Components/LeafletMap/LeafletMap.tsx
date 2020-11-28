@@ -47,7 +47,7 @@ export default class LeafletMap extends React.Component<LeafletMapPropsInterface
         let latlng: LatLng = event.latlng;
         this.setState({
             position: [latlng.lat, latlng.lng]
-        })
+        });
     }
 
     render() {
