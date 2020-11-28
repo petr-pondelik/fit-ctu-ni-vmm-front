@@ -4,6 +4,7 @@ import debounce from "lodash.debounce";
 export interface MaterializeTextInputPropsInterface {
     id: string
     label?: string
+    updateParent: (newValues: object) => void
 }
 
 export default function MaterializeTextInput(props: MaterializeTextInputPropsInterface) {
@@ -13,6 +14,9 @@ export default function MaterializeTextInput(props: MaterializeTextInputPropsInt
      */
     const updateParent = (author: string) => {
         console.log('updateParent: ' + author);
+        props.updateParent({
+            'author': author
+        });
     }
 
     const updateParentDebounced = useCallback(

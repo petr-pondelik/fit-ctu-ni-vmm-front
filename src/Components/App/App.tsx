@@ -18,8 +18,9 @@ export interface AppStateInterface {
 }
 
 export interface AppValuesInterface {
-    query?: string,
+    query?: string
     position?: PositionInterface
+    author?: string
 }
 
 type AppValuesKey = keyof AppValuesInterface;
@@ -37,7 +38,8 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
         this.apiClient = new ApiClient();
         this.values = {
             query: undefined,
-            position: undefined
+            position: undefined,
+            author: undefined
         }
         this.state = {
             photos: {
@@ -97,6 +99,7 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
                                 <MaterializeTextInput
                                     id={"author-name"}
                                     label={"Author name"}
+                                    updateParent={this.update}
                                 />
                             </div>
                         </div>
