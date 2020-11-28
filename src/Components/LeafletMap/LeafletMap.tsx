@@ -4,7 +4,7 @@ import {Icon, IconOptions, LatLng, LatLngTuple, LeafletEvent, LeafletMouseEvent}
 import './LeafletMap.css';
 
 export interface LeafletMapPropsInterface {
-
+    updateParent: (newValues: object) => void
 }
 
 export interface LeafletMapStateInterface {
@@ -45,6 +45,12 @@ export default class LeafletMap extends React.Component<LeafletMapPropsInterface
      */
     handleMapClick = (event: LeafletMouseEvent) => {
         let latlng: LatLng = event.latlng;
+        this.props.updateParent({
+            'position': {
+                'latitude': latlng.lat,
+                'longitude': latlng.lng
+            }
+        });
         this.setState({
             position: [latlng.lat, latlng.lng]
         });

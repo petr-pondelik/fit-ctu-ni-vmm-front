@@ -37,10 +37,7 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
         this.apiClient = new ApiClient();
         this.values = {
             query: undefined,
-            // position: {
-            //     latitude: 42.367975,
-            //     longitude: -71.07251667
-            // }
+            position: undefined
         }
         this.state = {
             photos: {
@@ -53,7 +50,7 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
     /**
      * @param newValues
      */
-    updateParent = (newValues: object): void => {
+    update = (newValues: object): void => {
         console.log('updateParent');
         console.log(newValues);
         for (const [key, value] of Object.entries(newValues)) {
@@ -63,12 +60,14 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
             }
         }
         console.log(this.values);
-        this.apiClient.photosSearch(this.values).then((response) => {
-            console.log(response);
-            this.setState({
-                photos: response.res
-            })
-        });
+        if (this.values.query !== undefined && this.values.query !== '' && this.values.query.length > 1) {
+            this.apiClient.photosSearch(this.values).then((response) => {
+                console.log(response);
+                this.setState({
+                    photos: response.res
+                })
+            });
+        }
     }
 
     render() {
@@ -77,14 +76,16 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
             <div className="App row">
                 <div className={"row"}>
                     <Header
-                        updateParent={this.updateParent}
+                        updateParent={this.update}
                     />
                 </div>
                 <div className={"row"}>
                     <div className={"col s12 m6"}>
                         <div className={"row"}>
                             <div className={"col s12"}>
-                                <LeafletMap/>
+                                <LeafletMap
+                                    updateParent={this.update}
+                                />
                             </div>
                         </div>
                         <div className={"row"}>
