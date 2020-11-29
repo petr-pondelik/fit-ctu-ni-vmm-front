@@ -2,34 +2,51 @@ import React from "react";
 
 
 export interface DatepickerPropsInterface {
-    id: string,
+    id: string
     label?: string
+    updateParent: (newValues: object) => void
 }
 
 export interface DatepickerStateInterface {
 
 }
 
-export default class MaterializeDatepicker extends React.Component<DatepickerPropsInterface, DatepickerStateInterface> {
+export interface DatepickerValuesInterface {
+    created?: string
+}
+
+export default class Datepicker extends React.Component<DatepickerPropsInterface, DatepickerStateInterface> {
+
+    active: boolean
+    values: DatepickerValuesInterface
 
     /**
      * @param props
      */
     constructor(props: DatepickerPropsInterface) {
         super(props);
+        this.active = true;
+        this.values = {
+            created: undefined
+        };
     }
 
     /**
      * @param date
      */
     handleSelect = (date: Date) => {
-        // TODO: Update selected date
-        console.log(date);
+        console.log('Datepicker: handleSelect');
+        this.values = {
+            created: date.toISOString()
+        };
+        console.log(this.values.created);
     }
 
     handleClose = () => {
-        // TODO: If the selected date differs from current, set it into current date and update parent
-        console.log('Close');
+        console.log('Datepicker: handleClose');
+        if (this.active) {
+            this.props.updateParent(this.values);
+        }
     }
 
     render() {

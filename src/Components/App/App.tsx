@@ -5,7 +5,7 @@ import PhotosSetInterface from "../../Interface/PhotosSetInterface";
 import PhotosGrid from "../Photos/PhotosGrid";
 import PositionInterface from "../../Client/Interface/Data/PositionInterface";
 import LeafletMap from "../LeafletMap/LeafletMap";
-import MaterializeDatepicker from "../Datepicker/MaterializeDatepicker";
+import Datepicker from "../Datepicker/Datepicker";
 import AuthorInput from "../TextInput/AuthorInput";
 import RangeGroup from "../Range/RangeGroup";
 import DimensionsInterface from "../../Client/Interface/Data/DimensionsInterface";
@@ -22,7 +22,8 @@ export interface AppValuesInterface {
     query?: string
     position?: PositionInterface
     author?: string,
-    dimensions?: DimensionsInterface
+    created?: string,
+    dimensions?: DimensionsInterface,
 }
 
 type AppValuesKey = keyof AppValuesInterface;
@@ -42,6 +43,7 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
             query: undefined,
             position: undefined,
             author: undefined,
+            created: undefined,
             dimensions: undefined
         }
         this.state = {
@@ -95,9 +97,10 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
                         </div>
                         <div className={"row"}>
                             <div className={"col s12"}>
-                                <MaterializeDatepicker
+                                <Datepicker
                                     id={"created-date-picker"}
                                     label={"Created at"}
+                                    updateParent={this.update}
                                 />
                                 <AuthorInput
                                     id={"author-name"}
