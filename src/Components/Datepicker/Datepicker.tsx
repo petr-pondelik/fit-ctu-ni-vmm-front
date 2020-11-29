@@ -1,4 +1,5 @@
 import React from "react";
+import Switch from "../Switch/Switch";
 
 
 export interface DatepickerPropsInterface {
@@ -32,6 +33,20 @@ export default class Datepicker extends React.Component<DatepickerPropsInterface
     }
 
     /**
+     * @param on
+     */
+    switch = (on: boolean) => {
+        this.active = on;
+        if (this.active) {
+            this.props.updateParent(this.values);
+        } else {
+            this.props.updateParent({
+                created: undefined
+            });
+        }
+    }
+
+    /**
      * @param date
      */
     handleSelect = (date: Date) => {
@@ -51,10 +66,21 @@ export default class Datepicker extends React.Component<DatepickerPropsInterface
 
     render() {
         return (
-            <div className={"input-field"}>
-                <input type="text" className="datepicker" id={this.props.id}/>
-                <label htmlFor={this.props.id}>{this.props.label}</label>
-            </div>
+            <React.Fragment>
+                <div className={"row d-flex"}>
+                    <div className={"col s9"}>
+                        <div className={"input-field"}>
+                            <input type="text" className="datepicker" id={this.props.id}/>
+                            <label htmlFor={this.props.id}>{this.props.label}</label>
+                        </div>
+                    </div>
+                    <div className={"col s3 flex-center-all"}>
+                        <Switch
+                            switchParent={this.switch}
+                        />
+                    </div>
+                </div>
+            </React.Fragment>
         );
     }
 

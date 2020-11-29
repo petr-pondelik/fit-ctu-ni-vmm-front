@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useCallback} from "react";
+import React, {ChangeEvent} from "react";
 import debounce from "lodash.debounce";
 import Switch from "../Switch/Switch";
 
