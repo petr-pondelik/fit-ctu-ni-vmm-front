@@ -14,10 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Range.init(e);
 });
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     let e = document.querySelectorAll('input[type=range]');
-//     M..init(e);
-// });
+// Init Materialize Select components
+document.addEventListener('DOMContentLoaded', function() {
+    let e = document.querySelectorAll('select');
+    M.FormSelect.init(e);
+});
 
 ReactDOM.render(
   <React.StrictMode>

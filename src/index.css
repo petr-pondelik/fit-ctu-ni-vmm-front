@@ -31,3 +31,11 @@ code {
 .flex-end {
   justify-content: flex-end;
 }
+
+.align-center {
+  align-items: center;
+}
+
+.p-1 {
+  padding: 1rem;
+}

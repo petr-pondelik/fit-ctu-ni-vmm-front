@@ -80,7 +80,7 @@ export default class AuthorInput extends React.Component<AuthorInputPropsInterfa
                             <label htmlFor={this.props.id}>{this.props.label}</label>
                         </div>
                     </div>
-                    <div className={"col s3 flex-center-all"}>
+                    <div className={"col s3 d-flex flex-end align-center"}>
                         <Switch
                             switchParent={this.switch}
                         />

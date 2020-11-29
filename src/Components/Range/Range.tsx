@@ -94,7 +94,7 @@ export default class Range extends React.Component<RangePropsInterface, RangeSta
                             <input type="range" min={this.props.min} max={this.props.max} step={this.props.step} onChange={this.handleChange} defaultValue={0}/>
                         </p>
                     </div>
-                    <div className={"col s3 flex-center-all"}>
+                    <div className={"col s3 d-flex flex-end align-center"}>
                         <Switch switchParent={this.switch}/>
                     </div>
                 </div>

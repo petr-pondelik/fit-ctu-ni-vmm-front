@@ -22,7 +22,7 @@ export default class Header extends React.Component<HeaderPropsInterface, Header
                 <nav>
                     <div className="nav-wrapper indigo darken-1">
                         <div className={"col s12"}>
-                            <a href="#" className="brand-logo">NI-VMM: Similarity search re-ranking</a>
+                            <a href="#" className="brand-logo">Unsplash metadata-based reranking</a>
                         </div>
                     </div>
                 </nav>

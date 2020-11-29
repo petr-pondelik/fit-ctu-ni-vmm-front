@@ -9,6 +9,7 @@ import Datepicker from "../Datepicker/Datepicker";
 import AuthorInput from "../TextInput/AuthorInput";
 import RangeGroup from "../Range/RangeGroup";
 import DimensionsInterface from "../../Client/Interface/Data/DimensionsInterface";
+import ResultsAmountSelect from "../Select/ResultsAmountSelect";
 
 export interface AppPropsInterface {
 
@@ -24,6 +25,7 @@ export interface AppValuesInterface {
     author?: string,
     created?: string,
     dimensions?: DimensionsInterface,
+    amount?: number
 }
 
 type AppValuesKey = keyof AppValuesInterface;
@@ -44,7 +46,8 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
             position: undefined,
             author: undefined,
             created: undefined,
-            dimensions: undefined
+            dimensions: undefined,
+            amount: 5
         }
         this.state = {
             photos: {
@@ -88,32 +91,41 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
                 </div>
                 <div className={"row"}>
                     <div className={"col s12 m6"}>
-                        <div className={"row"}>
-                            <div className={"col s12"}>
-                                <LeafletMap
-                                    updateParent={this.update}
-                                />
+                        <div className={"card p-1"}>
+                            <div className={"row"}>
+                                <div className={"col s12"}>
+                                    <LeafletMap
+                                        updateParent={this.update}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className={"row"}>
-                            <div className={"col s12"}>
-                                <Datepicker
-                                    id={"created-date-picker"}
-                                    label={"Created at"}
-                                    updateParent={this.update}
-                                />
-                                <AuthorInput
-                                    id={"author-name"}
-                                    label={"Author name"}
-                                    updateParent={this.update}
-                                />
+                            <div className={"row"}>
+                                <div className={"col s12"}>
+                                    <Datepicker
+                                        id={"created-date-picker"}
+                                        label={"Created at"}
+                                        updateParent={this.update}
+                                    />
+                                    <AuthorInput
+                                        id={"author-name"}
+                                        label={"Author name"}
+                                        updateParent={this.update}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className={"row"}>
-                            <div className={"col s12"}>
-                                <RangeGroup
-                                    updateParent={this.update}
-                                />
+                            <div className={"row"}>
+                                <div className={"col s12"}>
+                                    <RangeGroup
+                                        updateParent={this.update}
+                                    />
+                                </div>
+                            </div>
+                            <div className={"row"}>
+                                <div className={"col s12"}>
+                                    <ResultsAmountSelect
+                                        updateParent={this.update}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
