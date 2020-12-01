@@ -19,7 +19,7 @@ export default class Header extends React.Component<HeaderPropsInterface, Header
     render() {
         return (
             <header>
-                <nav>
+                <nav className={"header-title"}>
                     <div className="nav-wrapper indigo darken-1">
                         <div className={"col s12"}>
                             <a href="#" className="brand-logo">Unsplash metadata-based reranking</a>

@@ -39,3 +39,24 @@ code {
 .p-1 {
   padding: 1rem;
 }
+
+.header-title {
+  height: 3.4rem;
+}
+
+nav .brand-logo {
+  font-size: 1.7rem;
+}
+
+.row {
+  margin-bottom: 0.75rem;
+}
+
+.input-field {
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+}
+
+.card .card-title {
+  font-size: 1.1rem;
+}
