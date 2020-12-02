@@ -61,18 +61,14 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
      * @param newValues
      */
     update = (newValues: object): void => {
-        console.log('updateParent');
-        console.log(newValues);
         for (const [key, value] of Object.entries(newValues)) {
             if (this.values.hasOwnProperty(key)) {
                 let propertyKey: AppValuesKey = key as AppValuesKey;
                 this.values[propertyKey] = value;
             }
         }
-        console.log(this.values);
         if (this.values.query !== undefined && this.values.query !== '' && this.values.query.length > 1) {
             this.apiClient.photosSearch(this.values).then((response) => {
-                console.log(response);
                 this.setState({
                     photos: response.res
                 })
@@ -81,7 +77,6 @@ class App extends React.Component<AppPropsInterface, AppStateInterface> {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div className="App row">
                 <div className={"row"}>

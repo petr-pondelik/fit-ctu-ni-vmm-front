@@ -65,7 +65,6 @@ export default class Range extends React.Component<RangePropsInterface, RangeSta
      * @param size
      */
     update = (size?: number) => {
-        console.log('Range update: ' + size);
         this.values = { size: size };
         if (this.active) {
             this.props.updateParent(this.prepareValue(this.values.size));
@@ -80,7 +79,6 @@ export default class Range extends React.Component<RangePropsInterface, RangeSta
      * @param event
      */
     handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        console.log(event.currentTarget.value);
         this.updateDebounced(parseInt(event.currentTarget.value));
     }
 

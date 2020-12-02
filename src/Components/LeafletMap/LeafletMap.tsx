@@ -62,7 +62,6 @@ export default class LeafletMap extends React.Component<LeafletMapPropsInterface
      * @param event
      */
     handleZoom = (event: LeafletEvent): void => {
-        console.log(event.target._zoom);
         this.zoom = event.target._zoom;
     }
 

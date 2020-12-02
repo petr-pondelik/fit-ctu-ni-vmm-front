@@ -50,15 +50,12 @@ export default class Datepicker extends React.Component<DatepickerPropsInterface
      * @param date
      */
     handleSelect = (date: Date) => {
-        console.log('Datepicker: handleSelect');
         this.values = {
             created: date.toISOString()
         };
-        console.log(this.values.created);
     }
 
     handleClose = () => {
-        console.log('Datepicker: handleClose');
         if (this.active) {
             this.props.updateParent(this.values);
         }

@@ -13,8 +13,6 @@ export interface PhotosListStateInterface {
 export default class PhotosGrid extends React.Component<PhotosListPropsInterface, PhotosListStateInterface> {
 
     render() {
-        console.log('PhotosGrid render');
-        console.log(this.props.photos);
         return (
             <div className={"row"}>
                 <div className={"col s6"}>

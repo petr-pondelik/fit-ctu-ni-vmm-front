@@ -30,7 +30,6 @@ export default class ResultsAmountSelect extends React.Component<ResultsAmountSe
      * @param event
      */
     handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-        console.log(event.target.value);
         this.values.amount = parseInt(event.target.value);
         this.props.updateParent(this.values);
     }

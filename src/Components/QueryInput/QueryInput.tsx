@@ -8,7 +8,6 @@ export interface QueryInputPropsInterface {
 export default function QueryInput(props: QueryInputPropsInterface) {
 
     const updateParent = (query: string) => {
-        console.log('updateParent: ' + query);
         props.updateParent({
             "query": query
         });
@@ -21,7 +20,6 @@ export default function QueryInput(props: QueryInputPropsInterface) {
 
     const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
         let query: string = event.currentTarget.value;
-        console.log('handleQueryChange: ' + query);
         updateParentDebounced(query);
     }
 

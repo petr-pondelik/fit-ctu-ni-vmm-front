@@ -36,7 +36,6 @@ export default class AuthorInput extends React.Component<AuthorInputPropsInterfa
      * @param on
      */
     switch = (on: boolean): void => {
-        console.log(on);
         this.active = on;
         if (this.active) {
             this.update(this.values.author);
@@ -54,7 +53,6 @@ export default class AuthorInput extends React.Component<AuthorInputPropsInterfa
         let values: AuthorInputValuesInterface = { author: author };
         this.values = values;
         if (this.active) {
-            console.log('TextInput update: ' + author);
             this.props.updateParent(values);
         }
     }
